@@ -4,15 +4,18 @@ cask "clipkit" do
 
   url "https://github.com/arrrev/clipkit/releases/download/v#{version}/ClipKit-#{version}.zip"
   name "ClipKit"
-  desc "macOS clipboard manager with history, text transforms, and global hotkeys"
+  desc "Clipboard manager with history, text transforms, and global hotkeys"
   homepage "https://github.com/arrrev/clipkit"
+
+  depends_on arch: :arm64
+  depends_on :macos
 
   app "ClipKit.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-      args: ["-rd", "com.apple.quarantine", "#{appdir}/ClipKit.app"],
-      sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:         ["-rd", "com.apple.quarantine", "{{appdir}}/ClipKit.app"],
+        must_succeed: false
   end
 
   zap trash: [
