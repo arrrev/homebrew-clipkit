@@ -1,6 +1,6 @@
 cask "clipkit" do
-  version "2.1.3"
-  sha256 "29fcb283485b75a8795f8a059da56737b496ccc53229ee10ba1de339270f9cda"
+  version "2.1.4"
+  sha256 "24697ba9916d9ccdb677828707169b4eabf38f0758751d03f0636e1133bee4e1"
 
   url "https://github.com/arrrev/clipkit/releases/download/v#{version}/ClipKit-#{version}.zip"
   name "ClipKit"
